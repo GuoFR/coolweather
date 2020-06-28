@@ -15,11 +15,14 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.sunnyweather.myapplication.db.City;
-import com.example.sunnyweather.myapplication.db.County;
-import com.example.sunnyweather.myapplication.db.Province;
-import com.example.sunnyweather.myapplication.util.HttpUtil;
-import com.example.sunnyweather.myapplication.util.Utility;
+import com.coolweather.android.db.City;
+import com.coolweather.android.db.County;
+import com.coolweather.android.db.Province;
+import com.coolweather.android.util.HttpUtil;
+import com.coolweather.android.util.Utility;
+import com.example.sunnyweather.myapplication.MainActivity;
+import com.example.sunnyweather.myapplication.WeatherActivity;
+
 
 import org.litepal.crud.DataSupport;
 
@@ -81,8 +84,8 @@ public class ChooseAreaFragment extends Fragment {
                     queryCounties();
                 }else if (currentLevel==LEVEL_COUNTY){
                     String weatherId=countyList.get(position).getWeatherId();
-                    if (getActivity() instanceof  MainActivity){
-                        Intent intent=new Intent(getActivity(),WeatherActivity.class);
+                    if (getActivity() instanceof MainActivity){
+                        Intent intent=new Intent(getActivity(), WeatherActivity.class);
                         intent.putExtra("weather_id",weatherId);
                         startActivity(intent);
                         getActivity().finish();
